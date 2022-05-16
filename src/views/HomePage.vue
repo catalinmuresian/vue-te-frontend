@@ -1,5 +1,5 @@
 <template>
-  <div id="myGridContainer" v-if="jobStore.personUpdated">
+  <div id="myGridContainer" v-if="jobStore.personState">
     <div id="myGridColumn" v-if="jobStore.match_rates">
       <h2>Your Personal Preferences</h2>
       <div id="ratesContainer">
@@ -15,7 +15,7 @@
         </div>
       </div>
     </div>
-    <div id="myGridColumn" v-if="jobStore.personUpdated">
+    <div id="myGridColumn" v-if="jobStore.personState">
       <h2>List of your preferences/settings</h2>
 
       <div id="settingsContainer">
@@ -26,7 +26,7 @@
             type="checkbox"
             name="workplace"
             id="workplaceChk"
-            v-model="jobStore.personUpdated.workplace"
+            v-model="jobStore.personState.workplace"
           />
           <label for="workplaceChk">I want to work at the workplace</label>
           <br />
@@ -34,7 +34,7 @@
             type="checkbox"
             name="remote"
             id="remoteChk"
-            v-model="jobStore.personUpdated.remote"
+            v-model="jobStore.personState.remote"
           />
           <label for="remoteChk">I want to work remotely</label>
           <br />
@@ -43,7 +43,7 @@
             type="checkbox"
             name="workdays"
             id="workdaysChk"
-            v-model="jobStore.personUpdated.workdays"
+            v-model="jobStore.personState.workdays"
           />
           <label for="workdaysChk">I want to work workdays</label>
           <br />
@@ -51,7 +51,7 @@
             type="checkbox"
             name="saturday"
             id="saturdayChk"
-            v-model="jobStore.personUpdated.saturday"
+            v-model="jobStore.personState.saturday"
           />
           <label for="saturdayChk">Can do Saturdays</label>
           <br />
@@ -59,7 +59,7 @@
             type="checkbox"
             name="sunday"
             id="sundayChk"
-            v-model="jobStore.personUpdated.sunday"
+            v-model="jobStore.personState.sunday"
           />
           <label for="sundayChk">Can do Sundays</label>
           <br />
@@ -67,7 +67,7 @@
             type="checkbox"
             name="bank_holidays"
             id="bank_holidaysChk"
-            v-model="jobStore.personUpdated.bank_holidays"
+            v-model="jobStore.personState.bank_holidays"
           />
           <label for="bank_holidaysChk">Can do bank holidays</label>
           <br />
@@ -77,7 +77,7 @@
             type="checkbox"
             name="sat_sun_bh_only"
             id="sat_sun_bh_onlyChk"
-            v-model="jobStore.personUpdated.sat_sun_bh_only"
+            v-model="jobStore.personState.sat_sun_bh_only"
           />
           <label for="sat_sun_bh_onlyChk"
             >want to work only Saturdays, Sundays and Bank holidays</label
@@ -89,7 +89,7 @@
             type="checkbox"
             name="normal_hours"
             id="normal_hoursChk"
-            v-model="jobStore.personUpdated.normal_hours"
+            v-model="jobStore.personState.normal_hours"
           />
           <label for="normal_hoursChk">Want to work normal hours</label>
           <br />
@@ -97,7 +97,7 @@
             type="checkbox"
             name="nightshift"
             id="nightshiftChk"
-            v-model="jobStore.personUpdated.nightshift"
+            v-model="jobStore.personState.nightshift"
           />
           <label for="nightshiftChk">Can do nightshift</label>
           <br />
@@ -105,7 +105,7 @@
             type="checkbox"
             name="other_shift"
             id="other_shiftChk"
-            v-model="jobStore.personUpdated.other_shift"
+            v-model="jobStore.personState.other_shift"
           />
           <label for="other_shiftChk">Can do other shift</label>
           <br />
@@ -115,7 +115,7 @@
             type="checkbox"
             name="nightshift_only"
             id="nightshift_onlyChk"
-            v-model="jobStore.personUpdated.nightshift_only"
+            v-model="jobStore.personState.nightshift_only"
           />
           <label for="nightshift_onlyChk">Want to do nightshift only</label>
           <br />
@@ -123,7 +123,7 @@
             type="checkbox"
             name="other_shift_only"
             id="other_shift_onlyChk"
-            v-model="jobStore.personUpdated.other_shift_only"
+            v-model="jobStore.personState.other_shift_only"
           />
           <label for="other_shift_onlyChk"
             >Want to do ther shift only (eg. late afternoons)</label
@@ -134,7 +134,7 @@
             type="checkbox"
             name="overtime"
             id="overtimeChk"
-            v-model="jobStore.personUpdated.overtime"
+            v-model="jobStore.personState.overtime"
           />
           <label for="overtimeChk">Want to do jobs that has overtime</label>
           <br />
@@ -174,12 +174,15 @@ function showModalFunc() {
 }
 function confirmPersonSettingChanges() {
   // validation here
+  var changes = (jobStore.personUpdate == jobStore.personState) ? 'true' : 'false';
+  console.log(changes);
+
   storePersonData()
 }
 
 
 function storePersonData() {
-  personService.updatePerson(jobStore.personUpdated).then(
+  personService.updatePerson(jobStore.personState).then(
     (response) => {
       if (response.status == 223) {
         alert(response.data)
