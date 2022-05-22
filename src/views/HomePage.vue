@@ -174,9 +174,10 @@ function showModalFunc() {
 }
 function confirmPersonSettingChanges() {
   // validation here
-  var changes = (jobStore.personUpdate == jobStore.personState) ? 'true' : 'false';
-  console.log(changes);
 
+  var identical = (JSON.stringify(jobStore.personUpdate) == JSON.stringify(jobStore.personState)) ? 'true' : 'false';
+  console.log(identical);
+  
   storePersonData()
 }
 
