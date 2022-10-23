@@ -1,13 +1,18 @@
 <template>
   <div v-if="!jobStore?.job">This job doesn't exist</div>
   <div v-if="jobStore?.job" class="wrapper">
-    <div v-if="(store.userId == 8 || store.userId == 9 )">
+    <div v-if="store.userId == 8 || store.userId == 9">
       <router-link
         :to="{ name: 'editJobPreferences' }"
         class="btn btn_secondary"
       >
         Edit
       </router-link>
+      <div v-if="store.userId == 8 || store.userId == 9">
+        <router-link :to="{ name: 'editJobSkills' }" class="btn btn_secondary">
+          Edit Job Related Skills
+        </router-link>
+      </div>
     </div>
     <h1>{{ jobStore.job.job_name }}</h1>
     <h2>Position Specifics</h2>

@@ -112,40 +112,6 @@ this part is tricky, handle with care!!!
 </script>
 
 <style lang="css" scoped>
-#myGridContainer {
-  width: fit-content;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 5px;
-  border: 1px solid gray;
-}
-@media (min-width: 600px) {
-  #myGridContainer {
-    width: fit-content;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 5px;
-  }
-}
-#myGridColumn {
-  padding: 1vw;
-  min-width: 200px;
-}
-#myGridRow {
-  display: grid;
-  grid-template-columns: 3fr 1fr;
-  padding: 10px;
-}
-
-.grid-cell-1 {
-  width: max-content;
-}
-.grid-cell-2 {
-  text-align: right;
-}
-.grid-cell-2:after {
-  content: "%";
-}
 .myBtn {
   padding: 5px 10px;
   border: 1px solid gray;
