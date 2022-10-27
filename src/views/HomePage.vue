@@ -38,150 +38,172 @@
       </div>
       <div class="myGridColumn" v-if="jobStore.personUpdated">
         <h3>Usual work location</h3>
-        <input
-          type="checkbox"
-          class="form-check-input"
-          name="workplace"
-          id="workplaceChk"
-          v-model="jobStore.personUpdated.workplace"
-          @change="checkWorkplace"
-        />
-        <label for="workplaceChk">I want to work at the workplace</label>
-        <br />
-        <input
-          type="checkbox"
-          class="form-check-input"
-          name="remote"
-          id="remoteChk"
-          v-model="jobStore.personUpdated.remote"
-          @change="checkRemote"
-        />
-        <label for="remoteChk">I want to work remotely</label>
-        <br />
+        <div class="checkFlex">
+          <input
+            type="checkbox"
+            class="form-check-input"
+            name="workplace"
+            id="workplaceChk"
+            v-model="jobStore.personUpdated.workplace"
+            @change="checkWorkplace"
+          />
+          <label for="workplaceChk">I want to work at the workplace</label>
+        </div>
+        <div class="checkFlex">
+          <input
+            type="checkbox"
+            class="form-check-input"
+            name="remote"
+            id="remoteChk"
+            v-model="jobStore.personUpdated.remote"
+            @change="checkRemote"
+          />
+          <label for="remoteChk">I want to work remotely</label>
+        </div>
+
         <br />
         <h3>Overtime</h3>
-        <input
-          type="checkbox"
-          class="form-check-input"
-          name="overtime"
-          id="overtimeChk"
-          v-model="jobStore.personUpdated.overtime"
-          @change="checkOvertime"
-        />
-        <label for="overtimeChk">Want to do jobs that has overtime</label>
+        <div class="checkFlex">
+          <input
+            type="checkbox"
+            class="form-check-input"
+            name="overtime"
+            id="overtimeChk"
+            v-model="jobStore.personUpdated.overtime"
+            @change="checkOvertime"
+          />
+          <label for="overtimeChk">Want to do jobs that has overtime</label>
+        </div>
       </div>
       <div class="myGridColumn">
         <h3>Usual working days</h3>
-        <input
-          type="checkbox"
-          class="form-check-input"
-          name="workdays"
-          id="workdaysChk"
-          v-model="jobStore.personUpdated.workdays"
-          @change="checkWorkdays"
-        />
-        <label for="workdaysChk">I want to work workdays</label>
-        <br />
-        <input
-          type="checkbox"
-          class="form-check-input"
-          name="saturday"
-          id="saturdayChk"
-          v-model="jobStore.personUpdated.saturday"
-          @change="checkSaturday"
-        />
-        <label for="saturdayChk">Can do Saturdays</label>
-        <br />
-        <input
-          type="checkbox"
-          class="form-check-input"
-          name="sunday"
-          id="sundayChk"
-          v-model="jobStore.personUpdated.sunday"
-          @change="checkSunday"
-        />
-        <label for="sundayChk">Can do Sundays</label>
-        <br />
-        <input
-          type="checkbox"
-          class="form-check-input"
-          name="bank_holidays"
-          id="bank_holidaysChk"
-          v-model="jobStore.personUpdated.bank_holidays"
-          @change="checkBankholidays"
-        />
-        <label for="bank_holidaysChk">Can do bank holidays</label>
-        <br />
+        <div class="checkFlex">
+          <input
+            type="checkbox"
+            class="form-check-input"
+            name="workdays"
+            id="workdaysChk"
+            v-model="jobStore.personUpdated.workdays"
+            @change="checkWorkdays"
+          />
+          <label for="workdaysChk">I want to work workdays</label>
+        </div>
+        <div class="checkFlex">
+          <input
+            type="checkbox"
+            class="form-check-input"
+            name="saturday"
+            id="saturdayChk"
+            v-model="jobStore.personUpdated.saturday"
+            @change="checkSaturday"
+          />
+          <label for="saturdayChk">Can do Saturdays</label>
+        </div>
+
+        <div class="checkFlex">
+          <input
+            type="checkbox"
+            class="form-check-input"
+            name="sunday"
+            id="sundayChk"
+            v-model="jobStore.personUpdated.sunday"
+            @change="checkSunday"
+          />
+          <label for="sundayChk">Can do Sundays</label>
+        </div>
+
+        <div class="checkFlex">
+          <input
+            type="checkbox"
+            class="form-check-input"
+            name="bank_holidays"
+            id="bank_holidaysChk"
+            v-model="jobStore.personUpdated.bank_holidays"
+            @change="checkBankholidays"
+          />
+          <label for="bank_holidaysChk">Can do bank holidays</label>
+        </div>
+
         <h4>Special working days</h4>
-        <input
-          type="checkbox"
-          class="form-check-input"
-          name="sat_sun_bh_only"
-          id="sat_sun_bh_onlyChk"
-          v-model="jobStore.personUpdated.sat_sun_bh_only"
-          @change="checkSatsunbhonly"
-        />
-        <label for="sat_sun_bh_onlyChk"
-          >want to work only Saturdays, Sundays and Bank holidays</label
-        >
-        <br />
+        <div class="checkFlex">
+          <input
+            type="checkbox"
+            class="form-check-input"
+            name="sat_sun_bh_only"
+            id="sat_sun_bh_onlyChk"
+            v-model="jobStore.personUpdated.sat_sun_bh_only"
+            @change="checkSatsunbhonly"
+          />
+          <label for="sat_sun_bh_onlyChk">
+            want to work only Saturdays, Sundays and Bank holidays
+          </label>
+        </div>
       </div>
       <div class="myGridColumn">
         <h3>Usual working hours</h3>
-        <input
-          type="checkbox"
-          class="form-check-input"
-          name="normal_hours"
-          id="normal_hoursChk"
-          v-model="jobStore.personUpdated.normal_hours"
-          @change="checkNormalhours"
-        />
-        <label for="normal_hoursChk">Want to work normal hours</label>
-        <br />
-        <input
-          type="checkbox"
-          class="form-check-input"
-          name="nightshift"
-          id="nightshiftChk"
-          v-model="jobStore.personUpdated.nightshift"
-          @change="checkNightshift"
-        />
-        <label for="nightshiftChk">Can do nightshift</label>
-        <br />
-        <input
-          type="checkbox"
-          class="form-check-input"
-          name="other_shift"
-          id="other_shiftChk"
-          v-model="jobStore.personUpdated.other_shift"
-          @change="checkOthershift"
-        />
-        <label for="other_shiftChk">Can do other shift</label>
-        <br />
+        <div class="checkFlex">
+          <input
+            type="checkbox"
+            class="form-check-input"
+            name="normal_hours"
+            id="normal_hoursChk"
+            v-model="jobStore.personUpdated.normal_hours"
+            @change="checkNormalhours"
+          />
+          <label for="normal_hoursChk">Want to work normal hours</label>
+        </div>
+
+        <div class="checkFlex">
+          <input
+            type="checkbox"
+            class="form-check-input"
+            name="nightshift"
+            id="nightshiftChk"
+            v-model="jobStore.personUpdated.nightshift"
+            @change="checkNightshift"
+          />
+          <label for="nightshiftChk">Can do nightshift</label>
+        </div>
+
+        <div class="checkFlex">
+          <input
+            type="checkbox"
+            class="form-check-input"
+            name="other_shift"
+            id="other_shiftChk"
+            v-model="jobStore.personUpdated.other_shift"
+            @change="checkOthershift"
+          />
+          <label for="other_shiftChk">Can do other shift</label>
+        </div>
 
         <h4>Special working hours</h4>
-        <input
-          type="checkbox"
-          class="form-check-input"
-          name="nightshift_only"
-          id="nightshift_onlyChk"
-          v-model="jobStore.personUpdated.nightshift_only"
-          @change="checkNightshiftonly"
-        />
-        <label for="nightshift_onlyChk">Want to do nightshift only</label>
-        <br />
-        <input
-          type="checkbox"
-          class="form-check-input"
-          name="other_shift_only"
-          id="other_shift_onlyChk"
-          v-model="jobStore.personUpdated.other_shift_only"
-          @change="checkOthershiftonly"
-        />
-        <label for="other_shift_onlyChk"
-          >Want to do other shift only (eg. late afternoons)</label
-        >
-        <br />
+        <div class="checkFlex">
+          <input
+            type="checkbox"
+            class="form-check-input"
+            name="nightshift_only"
+            id="nightshift_onlyChk"
+            v-model="jobStore.personUpdated.nightshift_only"
+            @change="checkNightshiftonly"
+          />
+          <label for="nightshift_onlyChk">Want to do nightshift only</label>
+        </div>
+
+        <div class="checkFlex">
+          <input
+            type="checkbox"
+            class="form-check-input"
+            name="other_shift_only"
+            id="other_shift_onlyChk"
+            v-model="jobStore.personUpdated.other_shift_only"
+            @change="checkOthershiftonly"
+          />
+          <label for="other_shift_onlyChk"
+            >Want to do other shift only (eg. late afternoons)</label
+          >
+        </div>
+
         <br />
         <button id="show-modal" class="btn btn_primary" @click="showModalFunc">
           Store settings
@@ -423,5 +445,8 @@ function checkNightshift(e) {
 }
 .grid-cell-2:after {
   content: "%";
+}
+.checkFlex {
+  display: flex;
 }
 </style>
