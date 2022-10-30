@@ -44,7 +44,7 @@
           name="workplace"
           id="workplaceChk"
           v-model="jobStore.personUpdated.workplace"
-          @change="checkWorkplace"
+          @change="workPrefsComponent.checkWorkplace"
         />
         <label for="workplaceChk">I want to work at the workplace</label>
         <br />
@@ -54,7 +54,7 @@
           name="remote"
           id="remoteChk"
           v-model="jobStore.personUpdated.remote"
-          @change="checkRemote"
+          @change="workPrefsComponent.checkRemote"
         />
         <label for="remoteChk">I want to work remotely</label>
         <br />
@@ -213,9 +213,11 @@ import { useJobStore } from '../store/jobstore'
 import personService from '../services/person.service'
 import ModalComponent from '@/components/ModalComponent'
 import { ref } from 'vue'
+import workPrefsComponent from '@/services/workPrefsComponent.js'
 
 const jobStore = useJobStore()
 const store = useStore()
+
 
 let showModal = ref(false)
 let modalHeaderText = "Confirm Changes"
@@ -257,22 +259,6 @@ function storePersonData() {
         alert('unhandled error');
       }
     })
-}
-
-/* *******************************************************
-// investigate cases of checkboxes workplace and remote
-**********************************************************/
-
-function checkWorkplace(e) {
-  //console.log(e.target.checked); //tells if the checkbox is selected or not
-  if (e.target.checked) {// uncheck checkRemote
-    jobStore.personUpdated.remote = false
-  }
-}
-function checkRemote(e) {
-  if (e.target.checked) {
-    jobStore.personUpdated.workplace = false
-  }
 }
 
 /* *******************************************************
